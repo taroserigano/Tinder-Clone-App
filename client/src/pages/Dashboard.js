@@ -57,7 +57,7 @@ const Dashboard = () => {
         }
     }
 
-
+    // add this user to matched array
     const swiped = (direction, swipedUserId) => {
         if (direction === 'right') {
             updateMatches(swipedUserId)
@@ -68,9 +68,9 @@ const Dashboard = () => {
     const outOfFrame = (name) => {
         console.log(name + ' left the screen!')
     }
-
+    // pile up all matches' IDs
     const matchedUserIds = user?.matches.map(({user_id}) => user_id).concat(userId)
-
+    // filter out the already matched(right-swiped) IDs
     const filteredGenderedUsers = genderedUsers?.filter(genderedUser => !matchedUserIds.includes(genderedUser.user_id))
 
 
