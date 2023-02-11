@@ -1,5 +1,5 @@
 # Tinder-Clone-App
-The ultimate Tinder clone app using React | MongoDB | Authentication | Cookies | Chat !
+The ultimate Tinder clone app using React | Node & Express | MongoDB | Authentication | Cookies | Chat !
 
 Tinder Clone App!
 
