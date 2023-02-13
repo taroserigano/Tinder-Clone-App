@@ -14,9 +14,10 @@ const ChatContainer = ({ user }) => {
                 <button className="option" onClick={() => setClickedUser(null)}>Matches</button>
                 <button className="option" disabled={!clickedUser}>Chat</button>
             </div>
-
+            
+            // if no particular match selected, show the list of matches  
             {!clickedUser && <MatchesDisplay matches={user.matches} setClickedUser={setClickedUser}/>}
-
+            // if selecred a match, show the dedicated chat container with the match
             {clickedUser && <ChatDisplay user={user} clickedUser={clickedUser}/>}
         </div>
     )
