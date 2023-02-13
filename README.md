@@ -1,7 +1,6 @@
 # Tinder-Clone-App
-The ultimate Tinder clone app using React | Node & Express | MongoDB | JWT & BCrypt Encryption | Authentication | React-Cookie | React-Chat React-Tinder-Card!
+The ultimate Tinder Clone app using React | Node & Express | MongoDB | JWT & BCrypt Encryption | Authentication | React-Cookie | React-Chat React-Tinder-Card!
 
-Tinder Clone App!
 
 ![alt text](https://github.com/taroserigano/Tinder-Clone-App/blob/main/images/front.png)
 
