@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 
 // {!clickedUser && <MatchesDisplay matches={user.matches} setClickedUser={setClickedUser}/>}
-
+// these are "his" matches = user.matches
 const MatchesDisplay = ({ matches, setClickedUser }) => {
   const [matchedProfiles, setMatchedProfiles] = useState(null);
   const [cookies, setCookie, removeCookie] = useCookies(null);
