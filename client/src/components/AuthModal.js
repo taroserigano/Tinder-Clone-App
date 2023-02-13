@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { useCookies } from 'react-cookie'
 
-
+// add JWT token on AuthToken cookie 
 const AuthModal = ({ setShowModal,  isSignUp }) => {
     const [email, setEmail] = useState(null)
     const [password, setPassword] = useState(null)
