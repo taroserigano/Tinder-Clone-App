@@ -2,15 +2,20 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 
+// {!clickedUser && <MatchesDisplay matches={user.matches} setClickedUser={setClickedUser}/>}
+
 const MatchesDisplay = ({ matches, setClickedUser }) => {
   const [matchedProfiles, setMatchedProfiles] = useState(null);
   const [cookies, setCookie, removeCookie] = useCookies(null);
-
+  
+  // just extract the "user ID" from all matches
   const matchedUserIds = matches.map(({ user_id }) => user_id);
   const userId = cookies.UserId;
 
   const getMatches = async () => {
     try {
+      // then get the data from the DB
+      // then set them in matched profile
       const response = await axios.get("http://localhost:8000/users", {
         params: { userIds: JSON.stringify(matchedUserIds) },
       });
@@ -23,7 +28,8 @@ const MatchesDisplay = ({ matches, setClickedUser }) => {
   useEffect(() => {
     getMatches();
   }, [matches]);
-
+  
+  // from matched profiles, filter out, are their matches.matches == me ?
   const filteredMatchedProfiles = matchedProfiles?.filter(
     (matchedProfile) =>
       matchedProfile.matches.filter((profile) => profile.user_id == userId)
@@ -32,6 +38,7 @@ const MatchesDisplay = ({ matches, setClickedUser }) => {
 
   return (
     <div className="matches-display">
+    // filteredMatchedProfiles are = my matches
       {filteredMatchedProfiles?.map((match, _index) => (
         <div
           key={_index}
