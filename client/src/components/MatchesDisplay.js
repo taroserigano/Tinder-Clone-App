@@ -30,6 +30,7 @@ const MatchesDisplay = ({ matches, setClickedUser }) => {
   }, [matches]);
   
   // from matched profiles, filter out, are their matches.matches == me ?
+  // these are the users who you "matched" with 
   const filteredMatchedProfiles = matchedProfiles?.filter(
     (matchedProfile) =>
       matchedProfile.matches.filter((profile) => profile.user_id == userId)
