@@ -23,6 +23,8 @@ const Dashboard = () => {
             console.log(error)
         }
     }
+    
+    // filter only your interested-gendered members
     const getGenderedUsers = async () => {
         try {
             const response = await axios.get('http://localhost:8000/gendered-users', {
@@ -44,7 +46,8 @@ const Dashboard = () => {
             getGenderedUsers()
         }
     }, [user])
-
+    
+    // push [currentUser : the Other User he likes] into DB 
     const updateMatches = async (matchedUserId) => {
         try {
             await axios.put('http://localhost:8000/addmatch', {
@@ -68,9 +71,12 @@ const Dashboard = () => {
     const outOfFrame = (name) => {
         console.log(name + ' left the screen!')
     }
-    // pile up all matches' IDs
+    
+    // load up all of "his"' matches, currently
     const matchedUserIds = user?.matches.map(({user_id}) => user_id).concat(userId)
-    // filter out the already matched(right-swiped) IDs
+    
+    // genderedUsers = the OTHER members 
+    // filteredGenderedUsers = exclude ALL of already matched members; leftover members who are unseen  
     const filteredGenderedUsers = genderedUsers?.filter(genderedUser => !matchedUserIds.includes(genderedUser.user_id))
 
 
@@ -82,7 +88,8 @@ const Dashboard = () => {
                 <ChatContainer user={user}/>
                 <div className="swipe-container">
                     <div className="card-container">
-
+                        
+        // all the unseen members 
                         {filteredGenderedUsers?.map((genderedUser) =>
                             <TinderCard
                                 className="swipe"
