@@ -32,6 +32,8 @@ const Home = () => {
             <div className="home">
                 <h1 className="primary-title">Swipe Right®</h1>
                 <button className="primary-button" onClick={handleClick}>
+                    
+                    // if AuthToken already exists, remove it
                     {authToken ? 'Signout' : 'Create Account'}
                 </button>
 
