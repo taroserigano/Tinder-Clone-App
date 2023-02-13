@@ -58,7 +58,8 @@ const ChatDisplay = ({ user , clickedUser }) => {
         formattedMessage['timestamp'] = message.timestamp
         messages.push(formattedMessage)
     })
-
+    
+    // sort messages in order by the time stamp 
     const descendingOrderMessages = messages?.sort((a,b) => a.timestamp.localeCompare(b.timestamp))
 
     return (
